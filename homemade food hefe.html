@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homemade Food</title>
+    <style>
+        body {
+            background-color: #f2ede8;
+        }
+        
+        header {
+            background-color: #FFB700;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        nav {
+            background-color: #E5E5E5;
+            padding: 10px;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: #E5E5E5;
+            margin-top: 10px;
+        }
+        
+        .center-image {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+        
+        .center-image img {
+            width: 10%;
+            height: auto;
+            margin-top: -0.5cm;
+        }
+        
+        .split-section {
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid #FFB700;
+            background-color: #f2ede8;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: flex-start;
+            margin: 0 3cm;
+        }
+        
+        .left-section {
+            flex-basis: 100%;
+            position: relative;
+        }
+        
+        .content-box {
+            position: relative;
+            background-color: #f2ede8;
+            padding: 20px;
+            margin: 0 20px;
+        }
+        
+        .content-box::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background-color: #f2ede8;
+            border: 1px solid #ccc;
+            z-index: -1;
+        }
+        
+        .gallery {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+        
+        .gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+            position: absolute;
+        }
+        
+        .gallery img.active {
+            opacity: 1;
+        }
+        
+        .gallery-arrow {
+            font-size: 30px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .gallery-arrow-left {
+            left: 10px;
+        }
+        
+        .gallery-arrow-right {
+            right: 10px;
+        }
+    </style>
+    <script>
+        function openTab(tabName) {
+            var i, tabContent;
+            tabContent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].style.display = "none";
+            }
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById("pageFrame").src = tabName + ".html";
+        }
+        
+        window.onload = function() {
+            openTab("home");
+        };
+        
+        function showNextImage() {
+            var currentImage = document.querySelector(".gallery img.active");
+            var nextImage = currentImage.nextElementSibling;
+            if (!nextImage) {
+                nextImage = document.querySelector(".gallery img:first-child");
+            }
+            currentImage.classList.remove("active");
+            nextImage.classList.add("active");
+        }
+        
+        function showPrevImage() {
+            var currentImage = document.querySelector(".gallery img.active");
+            var prevImage = currentImage.previousElementSibling;
+            if (!prevImage) {
+                prevImage = document.querySelector(".gallery img:last-child");
+            }
+            currentImage.classList.remove("active");
+            prevImage.classList.add("active");
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1 style="text-align: center; background-color: orange; padding: 0.5cm;">Homemade Food</h1>
+        <div class="center-image">
+            <img src="https://cdn.create.vista.com/api/media/medium/471205754/stock-vector-big-pot-gold-plated-metalic?token=" alt="Yemek logo" style="width: 10%;">
+        </div>
+    </header>
+    
+    <nav>
+        <ul style="text-align: center;">
+            <li><a onclick="openTab('home')">Home</a></li>
+            <li><a onclick="openTab('about')">About</a></li>
+            <li><a onclick="openTab('gallery')">Gallery</a></li>
+            <li><a onclick="openTab('services')">Services</a></li>
+            <li><a onclick="openTab('contact')">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <div class="left-section">
+            <div class="content-box">
+                <div id="home" class="tab-content" style="display: block;">
+                    <h2 style="text-align: center;">Welcome to Homemade Food</h2>
+                    <p>At Homemade Food, we're passionate about good food, and we're thrilled to bring the culinary delights you crave right to your doorstep. Our online platform is your gateway to a world of mouthwatering dishes prepared with love and care. Whether you're looking for a quick weekday dinner, planning a special event, or just want to treat yourself, we've got you covered.
+                    </p>
+                    <p>
+                        Explore Our Website and Discover:
+                    </p>
+                    <ul>
+                        <li><strong>An extensive menu featuring a wide range of cuisines.</strong></li>
+                        <li><strong>Fresh, high-quality ingredients handpicked for your dishes.</strong></li>
+                        <li><strong>Convenient online ordering and secure payment options.</strong></li>
+                        <li><strong>Fast and reliable delivery straight to your door.</strong></li>
+                        <li><strong>A commitment to taste, quality, and exceptional customer service.</strong></li>
+                    </ul>
+                    <p>
+                        Join us on a culinary journey, and let us bring a little bit of culinary magic to your life. Start browsing our menu now, and get ready to savor unforgettable flavors.
+                    </p>
+                </div>
+                <div id="about" class="tab-content">
+                    <h2 style="text-align: center;">About</h2>
+                    <p>
+                        Welcome to Homemade Food, where our passion for food meets convenience and culinary excellence. Founded with a deep love for delicious cuisine and a commitment to customer satisfaction, we have been serving the community with mouthwatering dishes since 2022.
+                    </p>
+                    <h3>Our Mission</h3>
+                    <p>
+                        At Homemade Food, our mission is simple yet profound: to provide a delightful and hassle-free food experience to our valued customers. We believe that good food has the power to bring people together, spark joy, and create lasting memories. That's why we're dedicated to delivering top-notch culinary delights right to your doorstep.
+                    </p>
+                </div>
+                <div id="gallery" class="tab-content">
+                    <h2 style="text-align: center;">Gallery</h2>
+                    <div class="gallery">
+                        <img src="https://st2.depositphotos.com/1326558/7775/i/600/depositphotos_77758448-stock-photo-baked-eggplant-with-tomatoes.jpg" alt="Image 1" class="active">
+                        <img src="https://st2.depositphotos.com/15915464/44272/i/600/depositphotos_442725494-stock-photo-original-german-bbq-pork-knuckle.jpg" alt="Image 2">
+                        <img src="https://cdn.create.vista.com/api/media/small/12677725/stock-video-cooking-mexican-food?videoStaticPreview=true&token=" alt="Image 3">
+                        <img src="https://st3.depositphotos.com/9050074/33585/i/600/depositphotos_335855102-stock-photo-turkish-food-green-pea-stew.jpg" alt="Image 4">
+                        <img src="https://st2.depositphotos.com/4231041/45711/i/450/depositphotos_457118344-stock-photo-bobotie-south-african-curried-minced.jpg" alt="Image 5">
+                        <img src="https://st4.depositphotos.com/23803908/27787/i/600/depositphotos_277879086-stock-photo-salad-of-fried-chicken-hearts.jpg" alt="Image 6">
+                        <img src="https://st4.depositphotos.com/23803908/27787/i/600/depositphotos_277879086-stock-photo-salad-of-fried-chicken-hearts.jpg" alt="Image 7">
+                        <img src="https://st3.depositphotos.com/7691758/18678/i/450/depositphotos_186782558-stock-photo-fried-hot-meat-cutlets-on.jpg" alt="Image 8">
+                    </div>
+                    <div style="text-align: center; margin-top: 20px;">
+                        <span class="gallery-arrow gallery-arrow-left" onclick="showPrevImage()">&#10094;</span>
+                        <span class="gallery-arrow gallery-arrow-right" onclick="showNextImage()">&#10095;</span>
+                    </div>
+                </div>
+                <div id="services" class="tab-content">
+                    <h2 style="text-align: center;">Services</h2>
+                    <p>At Homemade Food, we are dedicated to providing you with a seamless and delectable food ordering experience. Our services are designed with your convenience in mind:
+                    </p>
+                    <ul>
+                        <li><strong>Extensive Menu Selection:</strong> Choose from a diverse range of cuisines, from traditional favorites to international delicacies. Our menu is constantly updated to cater to your cravings.</li>
+                        <li><strong>Fresh Ingredients:</strong> We source the freshest and highest-quality ingredients to ensure every dish we prepare is a culinary masterpiece.</li>
+                        <li><strong>Easy Online Ordering:</strong> Our user-friendly website allows you to place orders with just a few clicks. Select your items, customize your order, and check out securely.</li>
+                        <li><strong>Timely Delivery:</strong> We pride ourselves on prompt and reliable delivery services. Your order will arrive at your doorstep hot and ready to enjoy.</li>
+                        <li><strong>Exceptional Customer Support:</strong> Have questions or special requests? Our customer support team is here to assist you every step of the way.</li>
+                        <li><strong>Special Events Catering:</strong> Planning a celebration or corporate event? We offer catering services to make your gathering memorable.</li>
+                    </ul>
+                    <p>
+                        Experience the convenience and deliciousness of Homemade Food. We're here to make your dining experience extraordinary.
+                    </p>
+                </div>
+                <div id="contact" class="tab-content">
+                    <h2 style="text-align: center;">Contact</h2>
+                    <p>Have questions, comments, or feedback? We'd love to hear from you! Reach out to us via the following contact methods:
+                    </p>
+                    <ul>
+                        <li><strong>Phone:</strong> +90530 154 9894</li>
+                        <li><strong>Email:</strong> <a href="mailto:h.efe.saygili@gmail.com">h.efe.saygili@gmail.com</a></li>
+                        <li><strong>Instagram:</strong> <a href="https://www.instagram.com/efessaygili/">@efessaygili</a></li>
+                    </ul>
+                    <p>
+                        Feel free to contact us for inquiries about our menu, catering services, or any other assistance you may need. Our dedicated team is here to serve you and ensure your dining experience with us is nothing short of exceptional.
+                    </p>
+                    <p>
+                        Thank you for choosing Homemade Food for your culinary needs. We look forward to serving you soon!
+                    </p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function openTab(tabName) {
+            var i, tabContent;
+            tabContent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].style.display = "none";
+            }
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById("pageFrame").src = tabName + ".html";
+        }
+        
+        window.onload = function() {
+            openTab("home");
+        };
+        
+        function showNextImage() {
+            var currentImage = document.querySelector(".gallery img.active");
+            var nextImage = currentImage.nextElementSibling;
+            if (!nextImage) {
+                nextImage = document.querySelector(".gallery img:first-child");
+            }
+            currentImage.classList.remove("active");
+            nextImage.classList.add("active");
+        }
+        
+        function showPrevImage() {
+            var currentImage = document.querySelector(".gallery img.active");
+            var prevImage = currentImage.previousElementSibling;
+            if (!prevImage) {
+                prevImage = document.querySelector(".gallery img:last-child");
+            }
+            currentImage.classList.remove("active");
+            prevImage.classList.add("active");
+        }
+    </script>
+</body>
+</html>
